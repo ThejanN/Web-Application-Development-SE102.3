@@ -1,0 +1,25 @@
+{
+  "name": "auratech-online-store",
+  "version": "1.0.0",
+  "description": "AuraTech - Premium Online Gadget Store & Admin System",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js"
+  },
+  "keywords": [
+    "nsbm",
+    "coursework",
+    "web",
+    "express",
+    "sqlite3"
+  ],
+  "author": "NSBM Student",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "sqlite3": "^5.1.7"
+  }
+}

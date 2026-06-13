@@ -1,0 +1,15 @@
+# Dependency directories
+node_modules/
+
+# SQLite databases
+*.sqlite
+*.sqlite-journal
+
+# Markdown files (as requested: "dont push MD Files")
+*.md
+
+# Local configuration / IDE files
+.env
+.vscode/
+.idea/
+.gemini/

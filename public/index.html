@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraTech | Premium Tech & Gadget Store</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Discover AuraTech, the premium web store for elite tech gadgets, luxury wearables, and designer home accessories. Shop the future now.">
+    
+    <!-- Icons and Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo" id="nav-logo">
+                <span class="logo-icon"></span>
+                AuraTech
+            </a>
+            <ul class="nav-links" id="menu-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-btn" id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="nav-btn" id="cart-btn" aria-label="View Shopping Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <div class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle Mobile Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Elevate Your Tech,<br><span>Define Your Style</span></h1>
+                <p>Welcome to AuraTech. We curate and craft premium, state-of-the-art consumer electronics and lifestyle gadget accessories designed for performance and aesthetics.</p>
+                <div class="hero-buttons">
+                    <a href="shop.html" class="btn btn-primary">Shop Collection <i class="fas fa-arrow-right"></i></a>
+                    <a href="about.html" class="btn btn-secondary">Our Story</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-circle"></div>
+                <img class="hero-image" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80" alt="Premium AuraTech Setup">
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features Section -->
+    <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-glass); border-bottom: 1px solid var(--border-glass);">
+        <div class="container">
+            <h2 class="section-title">Why Choose AuraTech</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Global Express Delivery</h3>
+                    <p>Free, carbon-neutral delivery on all orders over $150. Fully tracked right to your doorstep.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure Infrastructure</h3>
+                    <p>256-bit encrypted transactions protecting your payment information and privacy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <h3>Premium Warranty</h3>
+                    <p>Enjoy 2 years of comprehensive product warranty and an instant 30-day return window.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Creations</h2>
+            <div class="products-grid" id="featured-products-container">
+                <!-- Dynamically populated or skeleton loading -->
+                <div style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 12px;"></i>
+                    <p>Loading curated products...</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="shop.html" class="btn btn-secondary">View Entire Store</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="margin-bottom: 20px; display: inline-flex;">
+                    <span class="logo-icon"></span>
+                    AuraTech
+                </a>
+                <p>Redefining your relationship with personal consumer technology through premium design, minimalism, and top-tier craftsmanship.</p>
+                <div class="social-links">
+                    <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop Catalog</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="shop.html?category=Wearables">Wearables</a></li>
+                    <li><a href="shop.html?category=Audio">Premium Audio</a></li>
+                    <li><a href="shop.html?category=Workspace">Workspace Setup</a></li>
+                    <li><a href="shop.html?category=Smart Home">Smart Home</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p>Subscribe to receive product launches, exclusive previews, and member-only pricing.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Subscribed to newsletter!', 'success');">
+                    <input type="email" placeholder="Enter email address" required aria-label="Email for newsletter">
+                    <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 AuraTech Inc. All rights reserved.</p>
+            <p>Developed for NSBM Coursework Assessment.</p>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Slide-out Drawer -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>Your Bag</h3>
+            <button class="cart-close-btn" id="cart-close" aria-label="Close Bag">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items-list">
+            <!-- Populated dynamically by main.js -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total:</span>
+                <span id="cart-total-amount">$0.00</span>
+            </div>
+            <button class="btn btn-primary" id="checkout-btn" style="width: 100%; justify-content: center;">
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Inline code to fetch featured products from database for Home page
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/api/products')
+                .then(res => res.json())
+                .then(products => {
+                    const container = document.getElementById('featured-products-container');
+                    if (!container) return;
+                    
+                    // Show only first 3 products
+                    const featured = products.slice(0, 3);
+                    container.innerHTML = '';
+                    
+                    if (featured.length === 0) {
+                        container.innerHTML = '<p style="text-align: center; grid-column: 1/-1;">No products found.</p>';
+                        return;
+                    }
+
+                    featured.forEach(product => {
+                        const card = document.createElement('div');
+                        card.className = 'product-card';
+                        card.innerHTML = `
+                            <div class="product-img-container">
+                                <span class="product-badge">${product.category}</span>
+                                <img src="${product.image}" alt="${product.name}" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">${product.name}</h3>
+                                <p class="product-desc">${product.description}</p>
+                                <div class="product-meta">
+                                    <span class="product-price">$${product.price.toFixed(2)}</span>
+                                    <button class="add-to-cart-btn" data-id="${product.id}" aria-label="Add ${product.name} to cart">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                        container.appendChild(card);
+                    });
+
+                    // Wire up cart click events
+                    container.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const id = parseInt(btn.dataset.id);
+                            const product = products.find(p => p.id === id);
+                            if (product) {
+                                addToCart(product);
+                            }
+                        });
+                    });
+                })
+                .catch(err => {
+                    console.error('Error loading products:', err);
+                    const container = document.getElementById('featured-products-container');
+                    if (container) container.innerHTML = '<p style="text-align: center; grid-column: 1/-1;">Error loading products.</p>';
+                });
+        });
+    </script>
+</body>
+</html>

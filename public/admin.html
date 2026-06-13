@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | AuraTech</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="AuraTech administration control panel. Manage inventory, view client messages, and handle REST database DML actions.">
+    
+    <!-- Icons and Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <!-- Header Navigation (Simplified for Admin Page) -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo" id="nav-logo">
+                <span class="logo-icon"></span>
+                AuraTech <span style="font-size: 0.8rem; letter-spacing: 0.1em; color: var(--accent-cyan); text-transform: uppercase; margin-left: 8px;">Control</span>
+            </a>
+            <ul class="nav-links" id="menu-links">
+                <li><a href="index.html">View Site</a></li>
+                <li><a href="shop.html">Shop Catalog</a></li>
+                <li><a href="admin.html" class="active">Dashboard</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-btn" id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ADMIN AUTH LOGIN CARD (Shown by default, hidden when authenticated) -->
+    <div class="admin-login-container" id="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <span class="logo-icon" style="width: 45px; height: 45px; margin: 0 auto 12px; display: block;"></span>
+                <h2>Admin Login</h2>
+                <p>Authenticate to manage AuraTech database</p>
+            </div>
+            <form id="admin-login-form">
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" class="form-control" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" class="form-control" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 16px;">
+                    Log In <i class="fas fa-sign-in-alt" style="margin-left: 6px;"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MAIN DASHBOARD CONTENT PANEL (Hidden by default, shown when authenticated) -->
+    <main class="admin-dashboard" id="dashboard-panel" style="display: none;">
+        <div class="container">
+            
+            <!-- Dashboard Top Nav -->
+            <div class="dashboard-header">
+                <div>
+                    <h1 style="font-size: 2.2rem; margin-bottom: 6px;">Database Control Panel</h1>
+                    <p style="color: var(--text-secondary);">Manage system inventory catalog, items, and customer inquiries.</p>
+                </div>
+                <div class="admin-profile">
+                    <span style="font-weight: 600; color: var(--text-primary);"><i class="fas fa-user-shield" style="margin-right: 6px; color: var(--accent-cyan);"></i> Session: <span id="admin-session-user">admin</span></span>
+                    <button class="logout-btn" id="admin-logout-btn">Log Out</button>
+                </div>
+            </div>
+
+            <!-- Stats Overview Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon-wrapper">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="stat-products-count">0</h3>
+                        <p>Total Products</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card messages">
+                    <div class="stat-icon-wrapper">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="stat-messages-count">0</h3>
+                        <p>Customer Inquiries</p>
+                    </div>
+                </div>
+
+                <div class="stat-card stock">
+                    <div class="stat-icon-wrapper">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="stat-low-stock-count">0</h3>
+                        <p>Low Stock Items</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs Controls -->
+            <div class="admin-tabs">
+                <button class="tab-btn active" data-tab="products-tab">Inventory Catalog</button>
+                <button class="tab-btn" data-tab="messages-tab">Client Inquiries</button>
+            </div>
+
+            <!-- TAB 1: PRODUCT LISTING & DML CONTROLS -->
+            <div class="tab-content active" id="products-tab">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                    <h2 style="font-size: 1.5rem; font-weight: 600;">Product Listings</h2>
+                    <button class="btn btn-primary btn-sm" id="open-add-product-modal" style="padding: 10px 20px;">
+                        Add Creation <i class="fas fa-plus" style="margin-left: 6px;"></i>
+                    </button>
+                </div>
+
+                <!-- Products Table -->
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Thumbnail</th>
+                                <th>Product Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock level</th>
+                                <th>Database actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-products-tbody">
+                            <!-- Populated dynamically by admin.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TAB 2: INBOX & MESSAGE DML CONTROLS -->
+            <div class="tab-content" id="messages-tab">
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 24px;">Inbound Mailbox Messages</h2>
+                <div class="message-card-list" id="admin-messages-list">
+                    <!-- Populated dynamically by admin.js -->
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ADD/EDIT PRODUCT DIALOG MODAL -->
+    <div class="modal-overlay" id="product-form-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modal-form-title">Add New Product Creation</h3>
+                <button class="modal-close-btn" id="close-product-form-modal" aria-label="Close form">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="product-upsert-form">
+                <div class="modal-body">
+                    <input type="hidden" id="form-product-id">
+                    
+                    <div class="form-group">
+                        <label for="form-product-name">Product Name *</label>
+                        <input type="text" id="form-product-name" class="form-control" placeholder="e.g. Aura Earbuds Pro" required>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="form-product-price">Price ($) *</label>
+                            <input type="number" id="form-product-price" step="0.01" class="form-control" placeholder="299.00" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-product-stock">Stock level *</label>
+                            <input type="number" id="form-product-stock" class="form-control" placeholder="15" required>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="form-product-category">Category *</label>
+                            <select id="form-product-category" class="form-control" required style="background-color: var(--bg-primary);">
+                                <option value="" disabled selected>Select Category</option>
+                                <option value="Wearables">Wearables</option>
+                                <option value="Audio">Audio</option>
+                                <option value="Smart Home">Smart Home</option>
+                                <option value="Workspace">Workspace</option>
+                                <option value="Accessories">Accessories</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-product-image">Image URL</label>
+                            <input type="url" id="form-product-image" class="form-control" placeholder="https://images.unsplash.com/...">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="form-product-desc">Description</label>
+                        <textarea id="form-product-desc" class="form-control" placeholder="Full product features description..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancel-product-form">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="save-product-form">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast alerts and main layout scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
